@@ -254,8 +254,9 @@ export default function Home() {
 `}
   </pre>
 </div>
-<Link href="https://github.com/Shashiawari/Watch-api" >
+
       <div className="container p-5 d-flex justify-content-center align-items-center">
+    <Link href="https://github.com/Shashiawari/Watch-api" >
         <button className="button">
           <svg
             fill="#ffffff"
@@ -276,8 +277,9 @@ export default function Home() {
           </svg>
           Continue with Github
         </button>
+              </Link>
       </div>
-      </Link>
+    
     </div>
   );
 }
