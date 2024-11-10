@@ -1,7 +1,3 @@
-Here’s a GitHub-friendly project description with emojis:
-
----
-
 ### **Watch API - Comprehensive Watch Data Platform 🕰️**
 
 The **Watch API** provides a seamless backend service for retrieving and managing watch data from popular brands like **Fastrack**, **Noise**, **Titan**, and **Fossil**. This API is designed to make it easy to integrate watch details into any web or mobile application, offering information such as product names, pricing, ratings, images, and more.
