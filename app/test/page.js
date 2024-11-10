@@ -1,9 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+
 const Page = () => {
   const [watchData, setWatchData] = useState([]);
   const [scrolling, setScrolling] = useState(false);
+  const [loading, setLoading] = useState(false);  // State to track loading status
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -23,6 +25,7 @@ const Page = () => {
 
   // Function to fetch data from API based on brand
   const fetchWatchData = async (brandName) => {
+    setLoading(true);  // Set loading to true when API call starts
     const res = await fetch(`/api/brands?brandname=${brandName}`);
     const data = await res.json();
     if (data.success) {
@@ -31,6 +34,7 @@ const Page = () => {
       setWatchData([]);
       alert(data.error);
     }
+    setLoading(false);  // Set loading to false once data is fetched
   };
 
   return (
@@ -42,9 +46,7 @@ const Page = () => {
       >
         <div className="container-fluid">
           <Link
-            className={`navbar-brand  ${
-              scrolling ? "navbar-brand text-white" : ""
-            }`}
+            className={`navbar-brand  ${scrolling ? "navbar-brand text-white" : ""}`}
             href="/"
           >
             Awari
@@ -64,9 +66,7 @@ const Page = () => {
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <Link
-                  className={`nav-link  ${
-                    scrolling ? "nav-link text-white" : ""
-                  }`}
+                  className={`nav-link  ${scrolling ? "nav-link text-white" : ""}`}
                   aria-current="page"
                   href="https://shashipreetham.netlify.app/"
                 >
@@ -75,9 +75,7 @@ const Page = () => {
               </li>
               <li className="nav-item">
                 <a
-                  className={`nav-link  ${
-                    scrolling ? "nav-link text-white" : ""
-                  }`}
+                  className={`nav-link  ${scrolling ? "nav-link text-white" : ""}`}
                   href="/test"
                 >
                   test
@@ -85,9 +83,7 @@ const Page = () => {
               </li>
               <li className="nav-item">
                 <a
-                  className={`nav-link  ${
-                    scrolling ? "nav-link text-white" : ""
-                  }`}
+                  className={`nav-link  ${scrolling ? "nav-link text-white" : ""}`}
                   href="/pricing"
                 >
                   Pricing
@@ -129,51 +125,53 @@ const Page = () => {
           </button>
         </div>
 
+        {/* Display loader while fetching data */}
+        {loading && (
+          <div className="text-center">
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <p>Loading...</p>
+          </div>
+        )}
+
+        {/* Display the fetched watches */}
         <div className="row mt-4">
           {watchData.length > 0 ? (
-            watchData.slice(0, 12).map(
-              (
-                watch,
-                index // Only display the first 10 items
-              ) => (
-                <div className="col-md-4" key={index}>
-                  <div className="card mx-2 my-2">
-                    {/* Conditionally render the image if a valid src exists */}
-                    {watch["img-link"] ? (
-                      <img
-                        src={watch["img-link"]}
-                        className="card-img-top"
-                        alt={watch.name}
-                      />
-                    ) : (
-                      <div className="card-img-top text-center">
-                        <span>No Image Available</span>{" "}
-                        {/* Fallback for no image */}
-                      </div>
-                    )}
-                    <div className="card-body">
-                      <h5 className="card-title">{watch.name}</h5>
-                      <p className="card-text">
-                        <strong className="my-2">Price:</strong> {watch.price}{" "}
-                        <br />
-                        <strong className="my-2">Rating:</strong> {watch.rating}{" "}
-                        <br />
-                        <strong className="my-2">Bought:</strong> {watch.bought}{" "}
-                        <br />
-                        <a
-                          href={watch.link}
-                          className="btn btn-primary mt-3"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          View Watch
-                        </a>
-                      </p>
+            watchData.slice(0, 12).map((watch, index) => (
+              <div className="col-md-4" key={index}>
+                <div className="card mx-2 my-2">
+                  {/* Conditionally render the image if a valid src exists */}
+                  {watch["img-link"] ? (
+                    <img
+                      src={watch["img-link"]}
+                      className="card-img-top"
+                      alt={watch.name}
+                    />
+                  ) : (
+                    <div className="card-img-top text-center">
+                      <span>No Image Available</span>
                     </div>
+                  )}
+                  <div className="card-body">
+                    <h5 className="card-title">{watch.name}</h5>
+                    <p className="card-text">
+                      <strong className="my-2">Price:</strong> {watch.price} <br />
+                      <strong className="my-2">Rating:</strong> {watch.rating} <br />
+                      <strong className="my-2">Bought:</strong> {watch.bought} <br />
+                      <a
+                        href={watch.link}
+                        className="btn btn-primary mt-3"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Watch
+                      </a>
+                    </p>
                   </div>
                 </div>
-              )
-            )
+              </div>
+            ))
           ) : (
             <p>No watches available for the selected brand.</p>
           )}
@@ -181,8 +179,7 @@ const Page = () => {
       </div>
 
       <p className="text-center">
-        This is a test page where you can test the API endpoints. You will get
-        up to 10 results ❗❗
+        This is a test page where you can test the API endpoints. You will get up to 12 results ❗❗
       </p>
     </div>
   );
