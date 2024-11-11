@@ -85,7 +85,7 @@ export default function Home() {
           </div>
         </div>
       </nav>
-      <div className="p-5 mt-5 dat">
+      <div className="dat">
   <h1 className="text-center">Documentation For Watch API</h1>
   <hr />
   <h2>API Documentation</h2>

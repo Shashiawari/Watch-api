@@ -80,6 +80,7 @@ p {
 
 .dat{
   margin-top:150px;
+  padding: 20px;
 }
 
 /* From Uiverse.io by Yaya12085 */ 
@@ -118,4 +119,10 @@ p {
   align-items: center;
   flex-direction: column;
 
+}
+
+@media only screen and (max-width: 600px) {
+  .dat {
+    padding: 0 !important;
+  }
 }
