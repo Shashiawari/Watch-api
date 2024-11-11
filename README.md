@@ -17,7 +17,7 @@ The **Watch API** provides a seamless backend service for retrieving and managin
 
 ### **How to Use** 💡
 1. Clone the repo
-2. Set up the backend using Node.js and Express
+2. Set up the backend using nextjs.
 3. Use the API endpoints to fetch watch data by brand or fetch all available watches.
 4. Customize and integrate this API into your own project or website!
 
