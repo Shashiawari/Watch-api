@@ -12,41 +12,44 @@
   font-family: autog;
   src: url(./fonts/Autography.otf);
 }
-.navbar-brand{
+.navbar-brand {
   font-family: autog;
   font-size: 50px !important;
   color: black;
 }
-.col{
+.col {
   color: white !important;
 }
 .navbar {
-/* Ensure default color is visible */
+  /* Ensure default color is visible */
   transition: background-color 0.3s ease; /* Smooth transition for background color change */
 }
 
-.navbar-scrolled {
-  background-color: #000000a8; 
- backdrop-filter: blur(2px);/* Change to your desired background color */
-}
-.nav-link{
-  color: black ;
-  font-family: clashb;
-  text-transform: uppercase;
-  transition: text-decoration 0.3s ease;
-}
-.nav-link:hover{
-  text-decoration: underline;
-  text-underline-offset: 10px;
-}
 .navbar-nav{
   background-color: rgba(0, 0, 0, 0.601);
   backdrop-filter: blur(3px);
   padding: 10px;
   border-radius: 20px;
 }
-
-h1,p,h2,h3,h4{
+.navbar-scrolled {
+  background-color: #000000a8;
+  backdrop-filter: blur(2px); /* Change to your desired background color */
+}
+.nav-link {
+  color: black;
+  font-family: clashb;
+  text-transform: uppercase;
+  transition: text-decoration 0.3s ease;
+}
+.nav-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+h1,
+p,
+h2,
+h3,
+h4 {
   font-family: clashl;
 }
 /* globals.css */
@@ -78,19 +81,14 @@ p {
   margin-bottom: 1rem;
 }
 
-.response{
+.response {
   background-color: rgb(0, 0, 0);
   padding: 15px;
   color: rgb(60, 239, 6);
   border-radius: 20px;
 }
 
-.dat{
-  margin-top:150px;
-  padding: 20px;
-}
-
-/* From Uiverse.io by Yaya12085 */ 
+/* From Uiverse.io by Yaya12085 */
 .button {
   display: flex;
   background-color: rgb(24, 23, 23);
@@ -106,8 +104,9 @@ p {
   gap: 0.75rem;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: .6s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: 0.6s ease;
   text-decoration: none !important;
 }
 
@@ -119,17 +118,20 @@ p {
   box-shadow: none;
 }
 
-.price{
+.price {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
+}
+.dat{
+  margin-top: 150px;
+  padding: 20px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .dat {
-    padding: 0 !important;
+    padding: 10px !important;
   }
 }
