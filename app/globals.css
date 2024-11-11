@@ -28,7 +28,7 @@
 .navbar-nav{
   background-color: rgba(0, 0, 0, 0.601);
   backdrop-filter: blur(3px);
-  padding: 10px;
+  padding: 10px !important;
   border-radius: 20px;
 }
 .navbar-scrolled {
@@ -37,7 +37,7 @@
 }
 .nav-link {
   color: black;
-  font-family: clashb;
+  font-family: clashb !important;
   text-transform: uppercase;
   transition: text-decoration 0.3s ease;
 }
