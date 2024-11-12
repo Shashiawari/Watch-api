@@ -36,7 +36,7 @@
   backdrop-filter: blur(2px); /* Change to your desired background color */
 }
 .nav-link {
-  color: black;
+  color: white !important;
   font-family: clashb !important;
   text-transform: uppercase;
   transition: text-decoration 0.3s ease;
